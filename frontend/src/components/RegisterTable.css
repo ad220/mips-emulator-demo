@@ -1,0 +1,34 @@
+
+.register-table {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.register-cell-container {
+    width: calc(1/6*100%);
+}
+
+.register-cell {
+    margin: 4px;
+    padding: 4px;
+    background-color: #202020;
+    border-radius: 6px;
+}
+
+#cell-pc {
+    width: calc(1/3*100%);
+}
+
+.register-header {
+    display: flex;
+    font-size: 11px;
+}
+
+.register-value {
+    font-size: 14px;
+    position: relative;
+    top: -8px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

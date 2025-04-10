@@ -1,0 +1,39 @@
+.editor-container {
+    background-color: #202020;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+}
+
+.editor-header {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.editor-run-button {
+    background-color: darkgreen;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    align-self: flex-end;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.editor-text-input {
+    resize: none;
+    background-color: inherit;
+    border: none;
+    flex-grow: 1;
+    width: 100%;
+    padding: 8px;
+    font-family: 'Jetbrains Mono';
+    font-weight: 200;
+    border-radius: 6px;
+}
+
+.editor-text-input:focus {
+    outline:none;
+}
