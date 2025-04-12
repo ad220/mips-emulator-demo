@@ -13,10 +13,16 @@ function App() {
   for (let index = 0; index < 32; index++) {
     registerInit['$'+('0'+index).slice(-2)] = 0;
   }
+  
+  // Init memory page before first run
+  var memoryInit = {0: []}
+  for (let index = 0; index < 64; index++) {
+    memoryInit[0].push(0);
+  }
 
   const [code, setCode] = useState('');
   const [registers, setRegisters] = useState(registerInit);
-  const [memory, setMemory] = useState({});
+  const [memory, setMemory] = useState(memoryInit);
   const [pc, setPc] = useState(0);
   const [hi, setHi] = useState(0);
   const [lo, setLo] = useState(0);
@@ -54,7 +60,7 @@ function App() {
       setPc(data.pc);
       setHi(data.hi);
       setLo(data.lo);
-      // setMemory(data.memory);
+      setMemory(data.memory);
     } catch (err) {
       // setError(err.message);
       console.error(err);
@@ -86,7 +92,7 @@ function App() {
         </div>
         <div id="state-view">
           <RegisterTableComponent registers={registers} pc={pc} hi={hi} lo={lo}/>
-          <MemoryPageComponent/>
+          <MemoryPageComponent memory={memory}/>
         </div>
       </div>
     </div>

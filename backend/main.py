@@ -28,7 +28,7 @@ class EmulatorResponse(BaseModel):
     pc: int
     hi: int
     lo: int
-    memory: Dict[str, List[Dict[str, int]]]
+    memory: Dict[int, List[int]]
     output: str
 
 @app.get("/")
@@ -75,20 +75,16 @@ def parse_state(output: str):
         
         if page_content_match:
             page_content = page_content_match.group(1)
-            memory_entries = []
+            memory_entries = [0] * 64
             
             memory_pattern = r"0x([0-9A-F]+):\s*(-?\d+)"
             memory_matches = re.findall(memory_pattern, page_content)
             
             for addr, value in memory_matches:
-                if int(value) != 0:  # Only include non-zero values to save space
-                    memory_entries.append({
-                        "address": int(addr, 16),
-                        "value": int(value)
-                    })
+                memory_entries[int(addr, 16)//4] = int(value)
             
             if memory_entries:  # Only include pages with non-zero values
-                memory[f"Page {page_num}"] = memory_entries
+                memory[int(page_num)] = memory_entries
     
     return registers, pc, hi, lo, memory
 
