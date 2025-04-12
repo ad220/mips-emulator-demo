@@ -36,6 +36,8 @@ def read_root():
     return {"message": "MIPS Emulator API is running"}
 
 def parse_state(output: str):
+    REGISTER_NAMES = ["$zero","$at","$v0","$v1","$a0","$a1","$a2","$a3","$t0","$t1","$t2","$t3","$t4","$t5","$t6","$t7","$s0","$s1","$s2","$s3","$s4","$s5","$s6","$s7","$t8","$t9","$k0","$k1","$gp","$sp","$fp","$ra"]
+
     # Extract registers state
     registers = {}
     pc, hi, lo = 0, 0, 0
@@ -45,7 +47,7 @@ def parse_state(output: str):
     register_pattern = r"R(\d+):\s*(-?\d+)"
     register_matches = re.findall(register_pattern, output)
     for reg_num, reg_val in register_matches:
-        registers[f"R{reg_num}"] = int(reg_val)
+        registers[REGISTER_NAMES[int(reg_num)]] = int(reg_val)
     
     # Parse PC, HI, LO
     pc_pattern = r"PC:0x([0-9A-F]+)"

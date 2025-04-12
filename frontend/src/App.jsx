@@ -11,7 +11,7 @@ function App() {
   // Init registers before first run
   var registerInit = {}
   for (let index = 0; index < 32; index++) {
-    registerInit['R'+index] = 0;
+    registerInit['$'+('0'+index).slice(-2)] = 0;
   }
 
   const [code, setCode] = useState('');
