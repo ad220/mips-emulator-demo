@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Terminal from './assets/terminal.png'
+import terminal from './assets/terminal.png'
 
 // import EditorComponent from './components/Editor'
 import MemoryPageComponent from './components/MemoryPage'
@@ -70,8 +70,10 @@ function App() {
   return (
     <div>
       <header>
-      {/* <Terminal/> */}
-      <div>MIPS Emulator Demo</div>
+        <div>
+          <img src={terminal} alt="Logo" width="32"/>
+          <a>MIPS Emulator Demo</a>
+        </div>
       </header>
       <div id="demo-container">
         <div id="input-output">

@@ -6,22 +6,25 @@
   font-weight: 400;
 }
 
-#root {
-  /* width: 100%; */
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  margin: 0;
 }
 
+#root {
+  width: 100%;
+  text-align: center;
+}
 
 #demo-container {
   display: flex;
   gap: 10px;
+  margin: 0 auto;
+  max-width: 1360px;
 }
 
 #input-output {
   width: 50%;
+  padding: 4px;
 }
 
 #state-view {
@@ -29,12 +32,16 @@
 }
 
 header {
-  padding: 30px;
-  font-size: large;
-  font-weight: normal;
-  display: flex;
-  gap: 20px;
-  align-items: center;
+  & div {
+    max-width: 1360px;
+    margin: auto;
+    padding: 30px 15px;
+    font-size: large;
+    font-weight: normal;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
   background-color: #202020;
   margin-bottom: 20px;
 }
