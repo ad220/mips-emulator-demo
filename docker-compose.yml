@@ -1,0 +1,18 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: mips-emulator-backend
+    container_name: mips-emulator-backend
+    ports:
+      - "127.0.0.1:1574:8000"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: mips-emulator-frontend
+    container_name: mips-emulator-frontend
+    ports:
+      - "127.0.0.1:1573:80"

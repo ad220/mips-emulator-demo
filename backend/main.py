@@ -8,6 +8,7 @@ import os
 import re
 
 os.chdir("emulator/")
+EXAMPLES_DIR="examples"
 app = FastAPI(title="MIPS Emulator API")
 
 # Configure CORS
@@ -141,8 +142,7 @@ def get_examples():
     examples = {}
     
     # Load example files from tests directory
-    tests_dir = "tests"
-    for filename in os.listdir(tests_dir):
+    for filename in os.listdir(EXAMPLES_DIR):
         if filename.endswith(".mips"):
             with open(os.path.join(tests_dir, filename), "r") as f:
                 examples[filename] = f.read()
@@ -151,4 +151,5 @@ def get_examples():
 
 if __name__ == "__main__":
     import uvicorn
+    EXAMPLES_DIR = "tests"
     uvicorn.run(app, host="0.0.0.0", port=8000)
