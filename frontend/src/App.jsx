@@ -37,6 +37,12 @@ function App() {
       return;
     }
 
+    const runButton = document.getElementById("run-button");
+    runButton.textContent = "...";
+    runButton.style.backgroundColor = "#406040";
+    runButton.style.cursor = "default";
+    runButton.disabled = true;
+
     try {
       const response = await fetch(`${API_URL}/emulate`, {
         method: 'POST',
@@ -64,6 +70,11 @@ function App() {
     } catch (err) {
       // setError(err.message);
       console.error(err);
+    } finally {
+      runButton.textContent = "Run";
+      runButton.style.backgroundColor = "darkgreen";
+      runButton.style.cursor = "pointer";
+      runButton.disabled = false;
     }
   }
 
@@ -82,7 +93,7 @@ function App() {
             {/* <select>
             </select> */}
             {/* <button onClick={handleDebug}>Debug</button> */}
-            <button class="editor-run-button" onClick={handleRun}>Run</button>
+            <button class="editor-run-button" id="run-button" onClick={handleRun}>Run</button>
           </div>
           <textarea class="editor-text-input"
             placeholder='Enter MIPS instructions'
