@@ -1,34 +1,32 @@
+.register-display {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-grow: 2;
+}
+
+.register-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.register-options {
+    font-size: 14px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
 
 .register-table {
     display: flex;
     flex-wrap: wrap;
+    flex-grow: 1;
 }
 
-.register-cell-container {
+.table-cell-container.register {
     width: calc(1/6*100%);
 }
 
-.register-cell {
-    margin: 4px;
-    padding: 4px;
-    background-color: #202020;
-    border-radius: 6px;
-}
-
-#cell-pc {
-    width: calc(1/3*100%);
-}
-
-.register-header {
-    display: flex;
-    font-size: 11px;
-}
-
-.register-value {
-    font-size: 14px;
-    position: relative;
-    top: -8px;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.cell-pc {
+    width: calc(1/3*100%) !important;
 }

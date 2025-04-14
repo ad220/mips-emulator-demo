@@ -2,6 +2,8 @@
 import {useState} from 'react';
 import './MemoryPage.css'
 
+import TableCellComponent from './TableCell'
+
 const MemoryPageComponent = ({
   memory
 }) => {
@@ -20,32 +22,19 @@ const MemoryPageComponent = ({
   console.log(pageIndexes.findIndex((_, i, o) => {pageIndex==o[i];}))
 
   return (
-    <>
-      <a>Memory</a> <br></br>
-      {
-        pageIndex>0 &&
-        <button onClick={() => {setPageIndex(pageIndex-1);}}>Previous</button>
-      }
-      <a>Page {pageIndexes[pageIndex]*1+1}/{pageIndexes[pageIndexes.length-1]*1+1}</a>
-      {
-        pageIndex<pageIndexes.length-1 &&
-        <button onClick={() => {setPageIndex(pageIndex+1);}}>Next</button>
-      }
-      <div class="memory-pages">
+    <div class="memory-pages">
+      <a class="memory-title">Memory</a>
+      <div class="page-browser">
+          <button class="mono" disabled={pageIndex<=0} onClick={() => {setPageIndex(pageIndex-1);}}>&lt;</button>
+        <a>Page <a class="mono">{pageIndexes[pageIndex]*1+1}/{pageIndexes[pageIndexes.length-1]*1+1}</a></a>
+          <button class="mono" disabled={pageIndex>=pageIndexes.length-1} onClick={() => {setPageIndex(pageIndex+1);}}>&gt;</button>
+      </div>
+      <div class="memory-table">
         {memory[pageIndexes[pageIndex]].map((value, index) => (
-          <div class="memory-cell-container">
-            <div class="memory-cell">
-              <div class="memory-header">
-                <a>{('00'+index*4).slice(-3)}</a>
-              </div>
-              <div class="register-value">
-                {value}
-              </div>
-            </div>
-          </div>
+          <TableCellComponent className="memory" key={index} header={index*4} value={value}/>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

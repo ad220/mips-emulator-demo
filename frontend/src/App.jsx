@@ -68,36 +68,39 @@ function App() {
   }
 
   return (
-    <div>
-      <header>
-        <div>
-          <img src={terminal} alt="Logo" width="32"/>
-          <a>MIPS Emulator Demo</a>
-        </div>
-      </header>
-      <div id="demo-container">
-        <div id="input-output">
-          <div class="editor-container">
-            <div class="editor-header">
-              {/* <select>
-              </select> */}
-              {/* <button onClick={handleDebug}>Debug</button> */}
-              <button class="editor-run-button" onClick={handleRun}>Run</button>
-            </div>
-            <textarea class="editor-text-input"
-              placeholder='Enter MIPS instructions'
-              value={code}
-              onChange={(e) => {setCode(e.target.value);}}
-            />
+    <>
+    <header>
+      <div>
+        <img src={terminal} alt="Logo" width="32"/>
+        <a>MIPS Emulator Demo</a>
+      </div>
+    </header>
+    <div id="demo-container">
+      <div id="input-output">
+        <div class="editor-container">
+          <div class="editor-header">
+            {/* <select>
+            </select> */}
+            {/* <button onClick={handleDebug}>Debug</button> */}
+            <button class="editor-run-button" onClick={handleRun}>Run</button>
           </div>
-          {/* <StandardOutputComponent/> */}
+          <textarea class="editor-text-input"
+            placeholder='Enter MIPS instructions'
+            value={code}
+            onChange={(e) => {setCode(e.target.value);}}
+          />
         </div>
-        <div id="state-view">
-          <RegisterTableComponent registers={registers} pc={pc} hi={hi} lo={lo}/>
-          <MemoryPageComponent memory={memory}/>
-        </div>
+        {/* <StandardOutputComponent/> */}
+      </div>
+      <div id="state-view">
+        <RegisterTableComponent registers={registers}pc={pc} hi={hi} lo={lo}/>
+        <MemoryPageComponent memory={memory}/>
+      </div>
+      <div>
+
       </div>
     </div>
+    </>
   )
 }
 

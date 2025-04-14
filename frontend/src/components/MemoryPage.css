@@ -1,30 +1,33 @@
-
 .memory-pages {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 4px;
+    flex-grow: 3;
 }
 
-.memory-cell-container {
-    width: calc(1/6*100%);
+.memory-title {
+    font-size: 20px;
+    font-weight: 600;
 }
 
-.memory-cell {
-    margin: 4px;
-    padding: 4px;
-    background-color: #202020;
-    border-radius: 6px;
-}
-
-.memory-header {
-    display: flex;
-    font-size: 11px;
-}
-
-.memory-value {
+.page-browser {
     font-size: 14px;
-    position: relative;
-    top: -8px;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    > a > a { /* page count */
+        font-size: 13px;
+    }
+}
+
+.memory-table {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.table-cell-container.memory {
+    width: calc(1/8*100%);
 }
