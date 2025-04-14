@@ -95,6 +95,10 @@ def emulate_mips(mips_data: MipsCode):
         with tempfile.NamedTemporaryFile(delete=False, suffix=".mips") as temp_file:
             temp_file.write(mips_data.code.encode())
             temp_filename = temp_file.name
+
+        with open(temp_filename, 'r') as tmp_file:
+            if len(tmp_file.readlines())>128:
+                raise HTTPException(status_code=500, detail=f"API error: too many instructions, file length limited to 128 lines.")
         
         # Build command based on step_by_step flag
         command = ["./emulateur", temp_filename]
