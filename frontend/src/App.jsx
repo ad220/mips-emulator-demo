@@ -82,7 +82,7 @@ function App() {
     <header>
       <div>
         <img src={terminal} alt="Logo" width="32"/>
-        <a>MIPS Emulator Demo</a>
+        <p>MIPS Emulator Demo</p>
       </div>
     </header>
     <div id="demo-container">

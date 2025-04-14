@@ -17,7 +17,7 @@ const RegisterTableComponent = ({
 
   return (
     <div class="register-display">
-      <a class="register-title">Registers</a>
+      <p class="register-title">Registers</p>
       <div class="register-options">
         <label>Show register index</label>
         <input type="checkbox" id="register-label-switch" value={useNameAsLabel} onChange={(e) => {toggleLabel(e.target.checked);}}></input>

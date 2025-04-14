@@ -10,9 +10,9 @@ const TableCellComponent = ({
     return (
         <div class={"table-cell-container "+className}>
             <div class="table-cell">
-                <a class="table-cell-header">{header}</a>
+                <p class="table-cell-header">{header}</p>
                 <div class="table-cell-value">
-                    <a title={value}>{value}</a>
+                    <p title={value}>{value}</p>
                 </div>
             </div>
         </div>

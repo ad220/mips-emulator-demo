@@ -17,8 +17,17 @@
     justify-content: center;
     gap: 20px;
 
-    > a > a { /* page count */
+    > div > p { /* page count */
         font-size: 13px;
+    }
+
+    > button {
+        background-color: #3B3B3B;
+        border: #616161 1px solid;
+        border-radius: 2px;
+        cursor: pointer;
+        width: 24px;
+        aspect-ratio: 1;
     }
 }
 
