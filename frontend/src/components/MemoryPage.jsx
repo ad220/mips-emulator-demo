@@ -26,7 +26,7 @@ const MemoryPageComponent = ({
       <a class="memory-title">Memory</a>
       <div class="page-browser">
           <button class="mono" disabled={pageIndex<=0} onClick={() => {setPageIndex(pageIndex-1);}}>&lt;</button>
-        <a>Page <a class="mono">{pageIndexes[pageIndex]*1+1}/{pageIndexes[pageIndexes.length-1]*1+1}</a></a>
+          <div>Page <a class="mono">{pageIndexes[pageIndex]*1+1}/{pageIndexes[pageIndexes.length-1]*1+1}</a></div>
           <button class="mono" disabled={pageIndex>=pageIndexes.length-1} onClick={() => {setPageIndex(pageIndex+1);}}>&gt;</button>
       </div>
       <div class="memory-table">
