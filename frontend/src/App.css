@@ -40,6 +40,7 @@ p {
   display: flex;
   flex-direction: column;
   background-color: #323232;
+  gap: 20px;
 }
 
 header {
@@ -56,6 +57,13 @@ header {
   background-color: #202020;
 }
 
+footer {
+  font-size: small;
+  color: #c0c0c0;
+  > a {
+    color: inherit;
+  }
+}
 
 #demo-container {
   flex-grow: 1;
@@ -65,7 +73,7 @@ header {
   min-height: 480px;
   max-height: 980px;
   max-width: 1360px;
-  padding: 20px 10px;
+  padding: 0 10px;
   height: auto;
 }
 

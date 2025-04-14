@@ -110,6 +110,10 @@ function App() {
 
       </div>
     </div>
+    <footer>
+      Proudly self-hosted and <a href="https://github.com/ad220/mips-emulator-demo">open source</a> 💜 !
+    </footer>
+    <div></div>
     </>
   )
 }
