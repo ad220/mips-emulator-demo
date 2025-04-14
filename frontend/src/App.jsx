@@ -6,6 +6,8 @@ import terminal from './assets/terminal.png'
 import MemoryPageComponent from './components/MemoryPage'
 import RegisterTableComponent from './components/RegisterTable'
 
+const API_URL = import.meta.env.DEV ? "http://localhost:8000" : import.meta.env.VITE_PROD_API_URL;
+
 function App() {
   
   // Init registers before first run
@@ -27,10 +29,7 @@ function App() {
   const [hi, setHi] = useState(0);
   const [lo, setLo] = useState(0);
 
-  // console.log(registers);
-
   async function handleRun() {
-    const API_URL = "http://localhost:8000"
 
     if (!code.trim()) {
       setError('Please enter or select MIPS code');
