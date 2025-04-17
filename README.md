@@ -3,11 +3,7 @@ A web interface for the MIPS emulator developped as a final project for an Esisa
 
 ## Install and deploy
 
-1. Build docker images.
-```bash
-docker compose build
-```
-2. Reverse-proxy the API and frontend, you can edit the exposed ports in [docker-compose.yml](./docker-compose.yml) if needed. Below is an example for a reverse-proxy with caddy.
+1. Prepare your reverse-proxy for the API and the frontend. You can change the ports exposed by the containers in [docker-compose.yml](./docker-compose.yml). Below is an example for a reverse-proxy with caddy.
 ```Caddyfile
 mips-emulator.arthurdavid.fr {
 	reverse_proxy :1573
@@ -17,8 +13,9 @@ mips-emulator.arthurdavid.fr {
 	}
 }
 ```
+2. Rename `.env.sample` to `.env` and edit the file with your API url.
 
-3. Run the app.
+3. Build and run docker images
 ```bash
-docker compose up -d
+docker compose build && docker compose up -d
 ```

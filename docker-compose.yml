@@ -5,6 +5,7 @@ services:
       dockerfile: Dockerfile
     image: mips-emulator-backend
     container_name: mips-emulator-backend
+    restart: unless-stopped
     ports:
       - "127.0.0.1:1574:8000"
 
@@ -14,5 +15,6 @@ services:
       dockerfile: Dockerfile
     image: mips-emulator-frontend
     container_name: mips-emulator-frontend
+    restart: unless-stopped
     ports:
       - "127.0.0.1:1573:80"
